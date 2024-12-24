@@ -1,0 +1,372 @@
+/* ============================= */
+/* Color Variables */
+/* ============================= */
+:root {
+  --primary-color: #2C627B; /* Primary: Blue */
+  --secondary-color: #BD2130; /* Secondary: Grey */
+  --tertiary-color: #515269; /* Tertiary: Light Blue */
+  --text-color: #333333; /* Standard text color */
+  --background-color: #f8f9fa; /* Light background */
+}
+
+/* ============================= */
+/* General Reset for Consistent Layout */
+/* ============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Cairo", sans-serif !important;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+/* ============================= */
+/* General Section Styling */
+/* ============================= */
+section {
+  padding: 40px 0;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 20px 0;
+  }
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* ============================= */
+/* Typography Adjustments */
+/* ============================= */
+h1, h2, h3 {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.7rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+}
+
+/* ============================= */
+/* Navbar Styling */
+/* ============================= */
+/* Navbar Brand Logo */
+.navbar-brand img {
+  height: 40px;
+  width: auto;
+}
+
+.navbar-brand span {
+  font-size: 1.2rem;
+  margin-right: 1.5rem;
+  font-weight: bold;
+}
+
+/* Navbar Links */
+.navbar-nav .nav-link {
+  position: relative;
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link .underline {
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width 0.3s;
+}
+
+.navbar-nav .nav-link:hover .underline {
+  width: 100%;
+}
+
+.navbar-nav .nav-link.active .underline {
+  width: 100%;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  .navbar-brand img {
+    height: 50px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+    padding: 6px 10px;
+  }
+}
+
+/* ============================= */
+/* Hero Section */
+/* ============================= */
+.hero-section {
+  /* background-image: url("./assets/hero-background.png"); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* Full screen height */
+  color: #ffffff; /* White text */
+  display: flex;
+  align-items: center;
+}
+
+
+.hero-section h1 {
+  font-size: 2.5rem;
+}
+
+.hero-section p {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+}
+
+/* ============================= */
+/* Button Styling */
+/* ============================= */
+.btn {
+  font-size: 1rem;
+  padding: 8px 16px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: var(--tertiary-color);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .btn {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+}
+
+/* ============================= */
+/* Footer Styling */
+/* ============================= */
+.footer {
+  background: var(--tertiary-color);
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    font-size: 0.8rem;
+  }
+}
+
+/* home page animations */
+
+/* Define keyframes for fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Define keyframes for floating shapes */
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Add fade-in animation to all sections */
+.section {
+  animation: fadeIn 1.5s ease-in-out forwards;
+  opacity: 0; /* Ensure it's hidden initially */
+}
+
+/* Floating circle style */
+.floating-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: floating 6s infinite ease-in-out;
+}
+
+
+/* ============================= */
+/* Utility Classes for Colors */
+/* ============================= */
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.text-secondary {
+  color: var(--secondary-color) !important;
+}
+
+.text-tertiary {
+  color: var(--tertiary-color) !important;
+}
+
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.bg-secondary {
+  background-color: var(--secondary-color) !important;
+}
+
+.bg-tertiary {
+  background-color: var(--tertiary-color) !important;
+}
+
+/* WhatsApp Icon Styling */
+.whatsapp-icon {
+  position: fixed;
+  bottom: 20px; /* Distance from bottom */
+  right: 20px; /* Distance from right */
+  background-color: #25d366; /* WhatsApp green */
+  color: white;
+  font-size: 24px; /* Icon size */
+  border-radius: 50%; /* Circular shape */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  z-index: 1000; /* Ensure it's on top */
+  width: 60px; /* Button width */
+  height: 60px; /* Button height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.whatsapp-icon:hover {
+  transform: scale(1.1); /* Zoom effect on hover */
+  background-color: #20c65a; /* Slightly darker green */
+}
+.form-title{
+  color: var(--primary-color);  
+}
+form label {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+}
+
+form input,
+form select {
+  font-size: 1rem;
+}
+
+form button {
+  font-size: 1.1rem;
+  color: white !important;
+  background-color: var(--primary-color) !important;
+}
+
+/* Services Section */
+.services-section {
+  background-color: #2C627B;
+  color: #ffffff;
+}
+
+.services-section h2 {
+  color: #ffffff;
+  font-size: 2rem;
+}
+
+.services-section p {
+  color: var(--primary-color);
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  color: #ffffff;
+}
+
+.card-text {
+  color: #ffffff;
+}
+ /* admin styles  */
+
+ .list-group-item {
+  transition: all 0.3s ease-in-out;
+}
+
+.list-group-item:hover {
+  background-color: #007bff;
+  color: white;
+  transform: translateX(5px);
+}
