@@ -12,6 +12,9 @@ const AdminNavbar = () => {
           <Link className="btn me-2" style={{ color: "var(--primary-color)", backgroundColor: "white" }} to="/links">
             روابط المستندات
           </Link>
+          <Link className="btn me-2" style={{ color: "var(--primary-color)", backgroundColor: "white" }} to="/admin-support">
+            اسئلة الدعم
+          </Link>
         </div>
       </div>
     </nav>

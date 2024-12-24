@@ -30,6 +30,16 @@ const LinksPage = () => {
         <h2 className="text-center mb-5 fw-bold" style={{color: "var(--primary-color)"}}>روابط المستندات</h2>
         <div className="row g-4">
           {links.map((link, index) => (
+            <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white"
+            style={{
+              textDecoration: "underline",
+              fontWeight: "bold",
+            }}
+          >
             <div className="col-md-6" key={index}>
               <div
                 className="card shadow-sm border-0 h-100"
@@ -49,22 +59,16 @@ const LinksPage = () => {
                   />
                   <div>
                     <h5 className="card-title mb-2 fw-bold">{link.title}</h5>
-                    <a
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white"
-                      style={{
-                        textDecoration: "underline",
-                        fontWeight: "bold",
-                      }}
-                    >
+                    
                       عرض المستند
-                    </a>
+                    
                   </div>
                 </div>
+                
               </div>
             </div>
+
+            </a>
           ))}
         </div>
       </div>

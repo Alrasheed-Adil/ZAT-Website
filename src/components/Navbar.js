@@ -64,7 +64,7 @@ const Navbar = () => {
                 className="nav-link fw-bold"
                 activeClassName="active"
               >
-                أسئلنا
+                دعم العملاء
                 <span className="underline"></span>
               </NavLink>
             </li>

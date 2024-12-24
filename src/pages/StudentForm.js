@@ -214,6 +214,11 @@ const StudentForm = () => {
           <option value="تركيا">تركيا</option>
           <option value="روسيا">روسيا</option>
           <option value="الهند">الهند</option>
+          <option value="قبرص">قبرص</option>
+          <option value="جورجيا">جورجيا</option>
+          <option value="الفلبين">الفلبين</option>
+          <option value="مصر">مصر</option>
+          <option value="رواندا">رواندا</option>
         </select>
       </div>
 
@@ -235,11 +240,18 @@ const StudentForm = () => {
           }}
         >
           <option value="">اختر التخصص</option>
-          <option value="الطب">الطب</option>
+          <option value="الطب">الطب البشري</option>
           <option value="الهندسة">الهندسة</option>
+          <option value="طب الأسنان">طب الأسنان</option>
+          <option value="الصيدلة">الصيدلة</option>
+          <option value="التمريض">التمريض</option>
+          <option value="التخصصات الأدبية">التخصصات الأدبية</option>
+          <option value="القانون">القانون</option>
+          <option value="المحاسبة">المحاسبة</option>
           <option value="إدارة الأعمال">إدارة الأعمال</option>
-          <option value="العلوم">العلوم</option>
           <option value="تكنولوجيا المعلومات">تكنولوجيا المعلومات</option>
+          <option value="اللغات">اللغات</option>
+          <option value="التسويق">التسويق</option>
         </select>
       </div>
 

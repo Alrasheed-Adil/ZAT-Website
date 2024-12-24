@@ -705,7 +705,7 @@ const HomePage = () => {
           >
             <i className="bi bi-tiktok"></i> TikTok
           </a>
-          <a
+          {/* <a
             href="https://youtube.com"
             target="_blank"
             rel="noopener noreferrer"
@@ -713,7 +713,7 @@ const HomePage = () => {
             style={{ color: "#FF0000", fontSize: "1.5rem" }}
           >
             <i className="bi bi-youtube"></i> YouTube
-          </a>
+          </a> */}
         </div>
         <hr className="my-4" />
         <p

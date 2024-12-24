@@ -232,6 +232,41 @@ p {
   }
 }
 
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 /* Define keyframes for floating shapes */
 @keyframes floating {
   0%, 100% {
@@ -244,9 +279,10 @@ p {
 
 /* Add fade-in animation to all sections */
 .section {
-  animation: fadeIn 1.5s ease-in-out forwards;
+  animation: fadeIn 0.5s ease-in-out forwards;
   opacity: 0; /* Ensure it's hidden initially */
 }
+
 
 /* Floating circle style */
 .floating-circle {
@@ -369,4 +405,13 @@ form button {
   background-color: #007bff;
   color: white;
   transform: translateX(5px);
+}
+
+.table td {
+  vertical-align: middle; /* Ensure alignment across rows */
+  word-wrap: break-word; /* Allow breaking of long words */
+  max-width: 300px; /* Limit the width of the text column */
+  overflow: hidden; /* Hide overflowing content */
+  text-overflow: ellipsis; /* Add ellipsis (...) for long text */
+  white-space: nowrap; /* Prevent wrapping unless necessary */
 }
