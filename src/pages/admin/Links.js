@@ -19,7 +19,7 @@ const LinksPage = () => {
     },
     {
       title: "عن اوزبكستان",
-      url: "https://docs.google.com/document/d/1zA9ZwhWLhqHrzEk311u6IaVhGe5npXwv4pZ8fuId4PU/edit?usp=drive_link",
+      url: "https://docs.google.com/document/d/1SJPwSexCITfvQRYZtpByaMjOg8YBEZGhgx9DTUzJMXM/edit?usp=drivesdk",
     },
   ];
 
@@ -49,7 +49,7 @@ const LinksPage = () => {
                   borderRadius: "12px",
                 }}
               >
-                <div className="card-body d-flex align-items-center">
+              <div className="card-body d-flex align-items-center">
                   <FaLink
                     style={{
                       fontSize: "2rem",
@@ -57,12 +57,12 @@ const LinksPage = () => {
                       color: "white",
                     }}
                   />
-                  <div>
+               <div>
+                   
                     <h5 className="card-title mb-2 fw-bold">{link.title}</h5>
-                    
                       عرض المستند
                     
-                  </div>
+              </div>
                 </div>
                 
               </div>

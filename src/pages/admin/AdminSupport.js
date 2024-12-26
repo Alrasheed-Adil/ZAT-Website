@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { utils, writeFile } from "xlsx"; // Import xlsx utilities
 import AdminNavbar from "../../components/AdminNavbar";
 import Footer from "../../components/Footer";
 import {
@@ -39,6 +40,28 @@ const AdminSupport = () => {
     }
   };
 
+  // Function to export the table data to an Excel file
+  const exportToExcel = () => {
+    const dataToExport = supportInquiries.map((inquiry) => ({
+      الاسم: inquiry.name,
+      البريد_الإلكتروني: inquiry.email,
+      رقم_الهاتف: inquiry.phone,
+      السؤال: inquiry.question,
+      الحالة:
+        inquiry.status === "New"
+          ? "جديد"
+          : inquiry.status === "In Progress"
+          ? "قيد المعالجة"
+          : "تم الحل",
+    }));
+
+    const worksheet = utils.json_to_sheet(dataToExport);
+    const workbook = utils.book_new();
+    utils.book_append_sheet(workbook, worksheet, "Support Inquiries");
+
+    writeFile(workbook, "Support_Inquiries.xlsx");
+  };
+
   return (
     <div>
       <AdminNavbar />
@@ -60,17 +83,17 @@ const AdminSupport = () => {
         >
           أسئلة الدعم
         </h2>
-        <p
-          className="text-center text-muted"
-          style={{
-            fontSize: "1.2rem",
-            maxWidth: "600px",
-            margin: "0 auto 2rem",
-          }}
-        >
-          لا تتردد في التواصل معنا لحل مشاكلك أو استفساراتك، هنا يمكنك رؤية جميع
-          أسئلة الدعم التي تم إرسالها.
-        </p>
+
+        {/* Export to Excel Button */}
+        <div className="text-end mb-3">
+          <button
+            className="btn btn-success"
+            onClick={exportToExcel}
+            style={{ borderRadius: "10px" }}
+          >
+            تصدير إلى Excel
+          </button>
+        </div>
 
         {loading && <p className="text-center">جاري التحميل...</p>}
         {error && <p className="text-center text-danger">{error}</p>}
@@ -92,66 +115,69 @@ const AdminSupport = () => {
                 </tr>
               </thead>
               <tbody>
-  {supportInquiries.map((inquiry) => (
-    <tr key={inquiry._id}>
-      <td>{inquiry.name}</td>
-      <td>{inquiry.email}</td>
-      <td>{inquiry.phone}</td>
-      <td
-        style={{
-          wordBreak: "break-word",
-          whiteSpace: "normal",
-          maxWidth: "300px",
-          overflowWrap: "break-word",
-        }}
-      >
-        {inquiry.question}
-      </td>
-      <td>
-        <span
-          className={`badge ${
-            inquiry.status === "New"
-              ? "bg-warning"
-              : inquiry.status === "In Progress"
-              ? "bg-info"
-              : "bg-success"
-          }`}
-          style={{ fontSize: "1rem" }}
-        >
-          {inquiry.status === "New"
-            ? "جديد"
-            : inquiry.status === "In Progress"
-            ? "قيد المعالجة"
-            : "تم الحل"}
-        </span>
-      </td>
-      <td>
-        {inquiry.status !== "Resolved" && (
-          <button
-            className="btn btn-sm btn-primary me-2"
-            onClick={() => handleStatusChange(inquiry._id, "In Progress")}
-            style={{
-              backgroundColor: "var(--primary-color)",
-              border: "none",
-            }}
-          >
-            قيد المعالجة
-          </button>
-        )}
-        {inquiry.status !== "Resolved" && (
-          <button
-            className="btn btn-sm btn-success"
-            onClick={() => handleStatusChange(inquiry._id, "Resolved")}
-            style={{ border: "none" }}
-          >
-            تم الحل
-          </button>
-        )}
-      </td>
-    </tr>
-  ))}
-</tbody>
-
+                {supportInquiries.map((inquiry) => (
+                  <tr key={inquiry._id}>
+                    <td>{inquiry.name}</td>
+                    <td>{inquiry.email}</td>
+                    <td>{inquiry.phone}</td>
+                    <td
+                      style={{
+                        wordBreak: "break-word",
+                        whiteSpace: "normal",
+                        maxWidth: "300px",
+                        overflowWrap: "break-word",
+                      }}
+                    >
+                      {inquiry.question}
+                    </td>
+                    <td>
+                      <span
+                        className={`badge ${
+                          inquiry.status === "New"
+                            ? "bg-warning"
+                            : inquiry.status === "In Progress"
+                            ? "bg-info"
+                            : "bg-success"
+                        }`}
+                        style={{ fontSize: "1rem" }}
+                      >
+                        {inquiry.status === "New"
+                          ? "جديد"
+                          : inquiry.status === "In Progress"
+                          ? "قيد المعالجة"
+                          : "تم الحل"}
+                      </span>
+                    </td>
+                    <td>
+                      {inquiry.status !== "Resolved" && (
+                        <button
+                          className="btn btn-sm btn-primary me-2"
+                          onClick={() =>
+                            handleStatusChange(inquiry._id, "In Progress")
+                          }
+                          style={{
+                            backgroundColor: "var(--primary-color)",
+                            border: "none",
+                          }}
+                        >
+                          قيد المعالجة
+                        </button>
+                      )}
+                      {inquiry.status !== "Resolved" && (
+                        <button
+                          className="btn btn-sm btn-success"
+                          onClick={() =>
+                            handleStatusChange(inquiry._id, "Resolved")
+                          }
+                          style={{ border: "none" }}
+                        >
+                          تم الحل
+                        </button>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
             </table>
           </div>
         )}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { utils, writeFile } from "xlsx"; // Import utilities from xlsx
 import AdminNavbar from "../../components/AdminNavbar";
 import Footer from "../../components/Footer";
 import { getScholars, updateScholarStatus } from "../../utils/apiService";
@@ -27,8 +28,10 @@ const AdminPanel = () => {
         (!filterCountry || req.country === filterCountry) &&
         (!filterMajor || req.major === filterMajor)
     )
-    .sort((a, b) => {const statusOrder = { New: 0, Processing: 1, Processed: 2 };
-    return statusOrder[a.status] - statusOrder[b.status];}); // New first, then others
+    .sort((a, b) => {
+      const statusOrder = { New: 0, Processing: 1, Processed: 2 };
+      return statusOrder[a.status] - statusOrder[b.status];
+    });
 
   const handleStatusChange = async (id, newStatus) => {
     try {
@@ -41,6 +44,24 @@ const AdminPanel = () => {
     } catch (error) {
       console.error("Error updating status:", error);
     }
+  };
+
+  // Export table data to Excel
+  const exportToExcel = () => {
+    const dataToExport = filteredRequests.map((req) => ({
+      Name: req.name,
+      Email: req.email,
+      Phone: req.phone,
+      Country: req.country,
+      Major: req.major,
+      Status: req.status,
+    }));
+
+    const worksheet = utils.json_to_sheet(dataToExport);
+    const workbook = utils.book_new();
+    utils.book_append_sheet(workbook, worksheet, "Requests");
+
+    writeFile(workbook, "Requests.xlsx");
   };
 
   return (
@@ -94,6 +115,17 @@ const AdminPanel = () => {
           </div>
         </div>
 
+        {/* Export Button */}
+        <div className="text-end mb-3">
+          <button
+            className="btn btn-success"
+            onClick={exportToExcel}
+            style={{ borderRadius: "10px" }}
+          >
+            تصدير إلى Excel
+          </button>
+        </div>
+
         {/* Requests Table */}
         <table className="table table-striped">
           <thead className="table-dark">
@@ -111,7 +143,9 @@ const AdminPanel = () => {
               <tr key={req._id}>
                 <td>{req.name}</td>
                 <td>{req.email}</td>
-                <td style={{ direction: "ltr",textAlign: "right" }}>{req.phone}</td>
+                <td style={{ direction: "ltr", textAlign: "right" }}>
+                  {req.phone}
+                </td>
                 <td>{req.country}</td>
                 <td>{req.major}</td>
                 <td>
