@@ -72,7 +72,7 @@ const AdminPanel = () => {
 
         {/* Filters */}
         <div className="row mb-4">
-          <div className="col-md-6">
+          <div className="col-md-6 col-sm-12 mb-3">
             <label htmlFor="countryFilter" className="form-label fw-bold">
               فلترة حسب الدولة:
             </label>
@@ -93,7 +93,7 @@ const AdminPanel = () => {
             </select>
           </div>
 
-          <div className="col-md-6">
+          <div className="col-md-6 col-sm-12 mb-3">
             <label htmlFor="majorFilter" className="form-label fw-bold">
               فلترة حسب التخصص:
             </label>
@@ -127,48 +127,52 @@ const AdminPanel = () => {
         </div>
 
         {/* Requests Table */}
-        <table className="table table-striped">
-          <thead className="table-dark">
-            <tr>
-              <th>الاسم</th>
-              <th>البريد الإلكتروني</th>
-              <th>رقم الهاتف</th>
-              <th>الدولة</th>
-              <th>التخصص</th>
-              <th>الحالة</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredRequests.map((req) => (
-              <tr key={req._id}>
-                <td>{req.name}</td>
-                <td>{req.email}</td>
-                <td style={{ direction: "ltr", textAlign: "right" }}>
-                  {req.phone}
-                </td>
-                <td>{req.country}</td>
-                <td>{req.major}</td>
-                <td>
-                  <select
-                    className={`form-select ${
-                      req.status === "New"
-                        ? "bg-danger text-white"
-                        : req.status === "Processing"
-                        ? "bg-primary text-white"
-                        : "bg-success text-white"
-                    }`}
-                    value={req.status}
-                    onChange={(e) => handleStatusChange(req._id, e.target.value)}
-                  >
-                    <option value="New">جديد</option>
-                    <option value="Processing">قيد المعالجة</option>
-                    <option value="Processed">تمت المعالجة</option>
-                  </select>
-                </td>
+        <div className="table-responsive">
+          <table className="table table-striped">
+            <thead className="table-dark">
+              <tr>
+                <th>الاسم</th>
+                <th>البريد الإلكتروني</th>
+                <th>رقم الهاتف</th>
+                <th>الدولة</th>
+                <th>التخصص</th>
+                <th>الحالة</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {filteredRequests.map((req) => (
+                <tr key={req._id}>
+                  <td>{req.name}</td>
+                  <td>{req.email}</td>
+                  <td style={{ direction: "ltr", textAlign: "right" }}>
+                    {req.phone}
+                  </td>
+                  <td>{req.country}</td>
+                  <td>{req.major}</td>
+                  <td>
+                    <select
+                      className={`form-select ${
+                        req.status === "New"
+                          ? "bg-danger text-white"
+                          : req.status === "Processing"
+                          ? "bg-primary text-white"
+                          : "bg-success text-white"
+                      }`}
+                      value={req.status}
+                      onChange={(e) =>
+                        handleStatusChange(req._id, e.target.value)
+                      }
+                    >
+                      <option value="New">جديد</option>
+                      <option value="Processing">قيد المعالجة</option>
+                      <option value="Processed">تمت المعالجة</option>
+                    </select>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
       <Footer />
     </div>

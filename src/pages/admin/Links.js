@@ -28,9 +28,11 @@ const LinksPage = () => {
       <AdminNavbar />
       <div className="container py-5">
         <h2 className="text-center mb-5 fw-bold" style={{color: "var(--primary-color)"}}>روابط المستندات</h2>
-        <div className="row g-4">
+        <div className="row g-4 ">
           {links.map((link, index) => (
-            <a
+            
+            <div className="col-md-6" key={index}>
+              <a
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
@@ -40,7 +42,6 @@ const LinksPage = () => {
               fontWeight: "bold",
             }}
           >
-            <div className="col-md-6" key={index}>
               <div
                 className="card shadow-sm border-0 h-100"
                 style={{
@@ -66,9 +67,10 @@ const LinksPage = () => {
                 </div>
                 
               </div>
+              </a>
             </div>
 
-            </a>
+            
           ))}
         </div>
       </div>

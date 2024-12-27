@@ -228,6 +228,16 @@ const SupportPage = () => {
             </button>
           </div>
         </form>
+        {/* whatsapp icon */}
+
+      <a
+      href="http://wa.me/201275777144" // Replace with your WhatsApp number
+      target="_blank"
+      rel="noopener noreferrer"
+      className="whatsapp-icon"
+    >
+      <i className="bi bi-whatsapp"></i>
+    </a>
       </div>
       <Footer />
       {/* Floating Animation Keyframes */}

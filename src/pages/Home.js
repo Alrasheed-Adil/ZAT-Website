@@ -104,7 +104,7 @@ const HomePage = () => {
               marginBottom: "10px",
             }}
           >
-            <i className="bi bi-pencil-square"></i> سجل بياناتك الآن
+            <i className="bi bi-pencil-square"></i> قدم الان
           </button>
           </Link>
           <a href="#about-us">

@@ -52,7 +52,7 @@ const AdminSupport = () => {
           ? "جديد"
           : inquiry.status === "In Progress"
           ? "قيد المعالجة"
-          : "تم الحل",
+          : "تمت الإجابة",
     }));
 
     const worksheet = utils.json_to_sheet(dataToExport);
@@ -103,7 +103,10 @@ const AdminSupport = () => {
             <table className="table table-striped table-hover shadow-sm">
               <thead
                 className="table-dark"
-                style={{ backgroundColor: "var(--primary-color)" }}
+                style={{
+                  backgroundColor: "var(--primary-color)",
+                  textAlign: "center",
+                }}
               >
                 <tr>
                   <th>الاسم</th>
@@ -119,7 +122,9 @@ const AdminSupport = () => {
                   <tr key={inquiry._id}>
                     <td>{inquiry.name}</td>
                     <td>{inquiry.email}</td>
-                    <td>{inquiry.phone}</td>
+                    <td style={{ direction: "ltr", textAlign: "right" }}>
+                      {inquiry.phone}
+                    </td>
                     <td
                       style={{
                         wordBreak: "break-word",
@@ -145,19 +150,21 @@ const AdminSupport = () => {
                           ? "جديد"
                           : inquiry.status === "In Progress"
                           ? "قيد المعالجة"
-                          : "تم الحل"}
+                          : "تمت الإجابة"}
                       </span>
                     </td>
-                    <td>
+                    <td className="text-center">
                       {inquiry.status !== "Resolved" && (
                         <button
-                          className="btn btn-sm btn-primary me-2"
+                        
+                          className="btn btn-sm btn-primary"
                           onClick={() =>
                             handleStatusChange(inquiry._id, "In Progress")
                           }
                           style={{
                             backgroundColor: "var(--primary-color)",
                             border: "none",
+                            marginLeft  : "5px"
                           }}
                         >
                           قيد المعالجة
@@ -171,7 +178,7 @@ const AdminSupport = () => {
                           }
                           style={{ border: "none" }}
                         >
-                          تم الحل
+                          تمت الإجابة
                         </button>
                       )}
                     </td>
