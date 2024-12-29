@@ -281,10 +281,10 @@ const StudentForm = () => {
                 }}
               >
                 <option value="">اختر المؤهل العلمي</option>
-                <option value="high school">الشهادة الثانوية</option>
-                <option value="diploma">دبلوم</option>
-                <option value="bachelor">بكالوريوس</option>
-                <option value="masters">ماجستير</option>
+                <option value="الشهادة الثانوية">الشهادة الثانوية</option>
+                <option value="دبلوم">دبلوم</option>
+                <option value="بكالوريوس">بكالوريوس</option>
+                <option value="ماجستير">ماجستير</option>
               </select>
             </div>
       
