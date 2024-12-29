@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:5000/api/scholars"; // Replace <PORT> with your backend port
+const API_BASE_URL = "https://zat-website-api.onrender.com/api/scholars"; // Replace <PORT> with your backend port
 const SUPPORT_API_BASE_URL = "https://zat-website-api.onrender.com/api/support"; 
 // Create a new scholar
 export const createScholar = async (scholar) => {
