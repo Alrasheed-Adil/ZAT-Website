@@ -45,7 +45,13 @@ const AdminPanel = () => {
       console.error("Error updating status:", error);
     }
   };
-
+  const formatDate = (dateString) => {
+    if (!dateString) return "غير متوفر";
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
+    return `${year}-${month}`;
+  };
   // Export table data to Excel
   const exportToExcel = () => {
     const dataToExport = filteredRequests.map((req) => ({
@@ -54,6 +60,8 @@ const AdminPanel = () => {
       Phone: req.phone,
       Country: req.country,
       Major: req.major,
+      Qualification: req.qualification, // Include qualification
+      QualificationDate: req.qualificationDate || "N/A", // Include qualification date
       Status: req.status,
     }));
 
@@ -136,6 +144,8 @@ const AdminPanel = () => {
                 <th>رقم الهاتف</th>
                 <th>الدولة</th>
                 <th>التخصص</th>
+                <th>المؤهل العلمي</th>
+                <th>تاريخ المؤهل</th>
                 <th>الحالة</th>
               </tr>
             </thead>
@@ -149,6 +159,8 @@ const AdminPanel = () => {
                   </td>
                   <td>{req.country}</td>
                   <td>{req.major}</td>
+                  <td>{req.qualification || "غير محدد"}</td>
+                  <td>{formatDate(req.qualificationDate) || "غير متوفر"}</td>
                   <td>
                     <select
                       className={`form-select ${

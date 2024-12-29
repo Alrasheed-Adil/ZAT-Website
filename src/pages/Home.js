@@ -104,10 +104,10 @@ const HomePage = () => {
               marginBottom: "10px",
             }}
           >
-            <i className="bi bi-pencil-square"></i> قدم الان
+            <i className="bi bi-pencil-square"></i> قدم الآن
           </button>
           </Link>
-          <a href="#about-us">
+          <a href="/universities">
           <button
             className="btn btn-outline-light btn-lg px-5 py-3 mr-3 animate__animated animate__bounceIn animate__delay-1s"
             style={{
@@ -518,17 +518,6 @@ const HomePage = () => {
         },
         {
           id: 5,
-          title: "الدعم القانوني والأكاديمي",
-          description:
-            "• تسجيل دورات الجامعة. • فتح ملفات الدعم القانوني. • مساعدة في إصدار التأشيرات والإجراءات السكنية.",
-        },
-        {
-          id: 6,
-          title: "الدعم الصحي والسلامة",
-          description: "• إصدار تأمين صحي. • توفير تغطية طبية شاملة.",
-        },
-        {
-          id: 7,
           title: "خدمات المستندات",
           description:
             "• ترجمة الشهادات. • الحصول على مستندات معتمدة لطلبات الجامعات.",
@@ -625,6 +614,7 @@ const HomePage = () => {
     <div className="row">
       <div className="col-lg-6">
         <ul className="list-unstyled">
+        <a href=" http://wa.me/+201273514666" style={{ color: "var(--primary-color)" }}>
           <li className="mb-3 d-flex align-items-center">
             <i
               className="bi bi-telephone-fill me-2"
@@ -632,6 +622,8 @@ const HomePage = () => {
             ></i>
             <strong className="me-2">الصين: </strong> <span style={{direction: "ltr", marginRight: "5px"}}> +201273514666</span>
           </li>
+          </a>
+          <a href=" http://wa.me/+201276977728" style={{ color: "var(--primary-color)" }}>
           <li className="mb-3 d-flex align-items-center">
             <i
               className="bi bi-telephone-fill me-2"
@@ -639,6 +631,8 @@ const HomePage = () => {
             ></i>
             <strong className="me-2">ماليزيا ورواندا: </strong> <span style={{direction: "ltr", marginRight: "5px"}}> +201276977728</span>
           </li>
+          </a>
+          <a href=" http://wa.me/+201288886215" style={{ color: "var(--primary-color)" }}>
           <li className="mb-3 d-flex align-items-center">
             <i
               className="bi bi-telephone-fill me-2"
@@ -646,6 +640,8 @@ const HomePage = () => {
             ></i>
             <strong className="me-2">الفلبين والهند: </strong> <span style={{direction: "ltr", marginRight: "5px"}}> +201288886215</span>
           </li>
+          </a>
+          <a href=" http://wa.me/+201288886213" style={{ color: "var(--primary-color)" }}>
           <li className="mb-3 d-flex align-items-center">
             <i
               className="bi bi-telephone-fill me-2"
@@ -653,6 +649,8 @@ const HomePage = () => {
             ></i>
             <strong className="me-2">روسيا وجورجيا: </strong> <span style={{direction: "ltr", marginRight: "5px"}}> +201288886213</span>
           </li>
+          </a>
+          <a href=" http://wa.me/+201206437496" style={{ color: "var(--primary-color)" }}>
           <li className="mb-3 d-flex align-items-center">
             <i
               className="bi bi-telephone-fill me-2"
@@ -660,13 +658,17 @@ const HomePage = () => {
             ></i>
             <strong className="me-2">تركيا وليبيا: </strong> <span style={{direction: "ltr", marginRight: "5px"}}> +201206437496</span>
           </li>
+          </a>
+          <a href=" http://wa.me/+201273492666" style={{ color: "var(--primary-color)" }}>
           <li className="mb-3 d-flex align-items-center">
             <i
               className="bi bi-telephone-fill me-2"
               style={{ fontSize: "1.5rem", color: "var(--primary-color)", direction: "rtl" }}
             ></i>
-            <strong className="me-2"> مصر: </strong> <span style={{direction: "ltr", marginRight: "5px"}}> +201273492666</span>
+            <strong className="me-2"> مصر: </strong> 
+            <span style={{direction: "ltr", marginRight: "5px"}}> +201273492666</span> 
           </li>
+          </a>
         </ul>
       </div>
       <div className="col-lg-6 d-flex flex-column justify-content-center">
@@ -683,27 +685,27 @@ const HomePage = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="me-3"
-            style={{ color: "#3b5998", fontSize: "1.5rem" }}
+            style={{ color: "#3b5998", fontSize: "2rem" }}
           >
-            <i className="bi bi-facebook"></i> Facebook
+            <i className="bi bi-facebook"></i> 
           </a>
           <a
             href="https://www.instagram.com/zatstudyabroad?igsh=MXZhaDgxYnJnOXZrdA=="
             target="_blank"
             rel="noopener noreferrer"
             className="me-3"
-            style={{ color: "#E1306C", fontSize: "1.5rem" }}
+            style={{ color: "#E1306C", fontSize: "2rem" }}
           >
-            <i className="bi bi-instagram"></i> Instagram
+            <i className="bi bi-instagram"></i> 
           </a>
           <a
             href="https://www.tiktok.com/@zat_study_in_egypt?_t=8sSyfmEKsB3&_r=1"
             target="_blank"
             rel="noopener noreferrer"
             className="me-3"
-            style={{ color: "#000000", fontSize: "1.5rem" }}
+            style={{ color: "#000000", fontSize: "2rem" }}
           >
-            <i className="bi bi-tiktok"></i> TikTok
+            <i className="bi bi-tiktok"></i>
           </a>
           {/* <a
             href="https://youtube.com"

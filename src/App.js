@@ -9,6 +9,7 @@ import AdminPanel from './pages/admin/Admin';
 import AdminLogin from './pages/admin/Login';
 import LinksPage from "./pages/admin/Links";
 import AdminSupport from "./pages/admin/AdminSupport";
+import UniversitiesPage from "./pages/Universites"
 import './custom.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
@@ -28,6 +29,7 @@ function App() {
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/admin-support" element={<AdminSupport />} />
         <Route path="/links" element={<LinksPage />} />
+        <Route path="/universities" element={<UniversitiesPage />} />
 
         {/* Protected Routes */}
         <Route

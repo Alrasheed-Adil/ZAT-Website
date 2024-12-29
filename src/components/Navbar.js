@@ -60,6 +60,16 @@ const Navbar = () => {
             </li>
             <li className="nav-item px-3">
               <NavLink
+                to="/universities"
+                className="nav-link fw-bold"
+                activeClassName="active"
+              >
+                الجامعات
+                <span className="underline"></span>
+              </NavLink>
+            </li>
+            <li className="nav-item px-3">
+              <NavLink
                 to="/support"
                 className="nav-link fw-bold"
                 activeClassName="active"

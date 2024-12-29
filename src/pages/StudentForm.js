@@ -10,6 +10,8 @@ const StudentForm = () => {
     phone: "",
     country: "",
     major: "",
+    qualification: "",
+    qualificationDate: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -37,6 +39,8 @@ const StudentForm = () => {
         phone: "",
         country: "",
         major: "",
+        qualification: "",
+        qualificationDate: "",
       });
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -254,6 +258,60 @@ const StudentForm = () => {
           <option value="التسويق">التسويق</option>
         </select>
       </div>
+
+        {/* Qualification Dropdown */}
+        <div className="mb-3">
+              <label
+                htmlFor="qualification"
+                className="form-label fw-bold"
+                style={{ fontSize: "1.1rem", color: "var(--primary-color)" }}
+              >
+                المؤهل العلمي :
+              </label>
+              <select
+                id="qualification"
+                name="qualification"
+                className="form-select"
+                value={formData.qualification}
+                onChange={handleChange}
+                required
+                style={{
+                  borderRadius: "10px",
+                  border: "2px solid var(--primary-color)",
+                }}
+              >
+                <option value="">اختر المؤهل العلمي</option>
+                <option value="high school">الشهادة الثانوية</option>
+                <option value="diploma">دبلوم</option>
+                <option value="bachelor">بكالوريوس</option>
+                <option value="masters">ماجستير</option>
+              </select>
+            </div>
+      
+      {/* Qualification Date */}
+      <div className="mb-3">
+              <label
+                htmlFor="qualificationDate"
+                className="form-label fw-bold"
+                style={{ fontSize: "1.1rem", color: "var(--primary-color)" }}
+              >
+                تاريخ المؤهل العلمي :
+              </label>
+              <input
+                type="date"
+                id="qualificationDate"
+                name="qualificationDate"
+                className="form-control"
+                value={formData.qualificationDate}
+                onChange={handleChange}
+                required
+                style={{
+                  borderRadius: "10px",
+                  border: "2px solid var(--primary-color)",
+                  padding: "10px",
+                }}
+              />
+            </div>
 
       {/* Submit Button */}
       <div className="text-center">
